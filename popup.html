@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>朗读助手</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="header-content">
+        <h1 class="title">朗读助手</h1>
+        <p class="subtitle">智能文本转语音</p>
+      </div>
+    </div>
+
+    <!-- Status Card -->
+    <div id="statusCard" class="status-card">
+      <div class="status-indicator">
+        <div id="statusDot" class="status-dot idle"></div>
+      </div>
+      <div class="status-info">
+        <span id="status" class="status-text">未开始</span>
+        <span id="statusTime" class="status-time">准备就绪</span>
+      </div>
+    </div>
+
+    <!-- Main Controls -->
+    <div class="controls-section">
+      <button id="playBtn" class="btn btn-primary btn-large" aria-label="开始朗读">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+        <span id="playBtnText">开始</span>
+      </button>
+
+      <button id="stopBtn" class="btn btn-secondary btn-danger" disabled aria-label="停止">
+        <svg class="btn-icon-sm" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6 6h12v12H6z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Settings Section -->
+    <div class="settings-section">
+      <div class="setting-item">
+        <label for="rateSlider" class="setting-label">
+          <span class="label-text">语音速率</span>
+          <span class="label-value" id="rateValue">1.0x</span>
+        </label>
+        <input type="range" id="rateSlider" class="slider" min="0.5" max="2" step="0.1" value="1" aria-label="语音速率">
+      </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="message" class="message" role="alert" aria-live="polite"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
